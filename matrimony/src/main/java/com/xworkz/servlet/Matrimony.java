@@ -3,6 +3,7 @@ package com.xworkz.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,11 +24,23 @@ public class Matrimony extends HttpServlet {
 		String ref2=req.getParameter("height");
 		String ref3=req.getParameter("locality");
 		
-		System.out.println("caste==="+ref1);
-		System.out.println("height==="+ref2);
-		System.out.println("locality==="+ref3);
+		Double a=Double.parseDouble(ref2);
 		
-		PrintWriter printWriter=resp.getWriter();
+		
+		RequestDispatcher dispatcher=req.getRequestDispatcher("Response.jsp");
+		
+		if(a<7) {
+			
+			req.setAttribute("feet", "your preferenced height matched");
+		}else {
+			req.setAttribute("ifnot", "didn't find your match");
+		}
+		
+		req.setAttribute("caste1", ref1);
+		req.setAttribute("height1", ref2);
+		req.setAttribute("locality1", ref3);
+		
+		dispatcher.forward(req, resp);
 		
 	}
 
