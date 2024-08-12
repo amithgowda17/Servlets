@@ -26,7 +26,7 @@ public class Matrimony extends HttpServlet {
 		
 		Double a=Double.parseDouble(ref2);
 		
-		
+	
 		RequestDispatcher dispatcher=req.getRequestDispatcher("Response.jsp");
 		
 		if(a<7) {
