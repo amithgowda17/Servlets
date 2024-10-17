@@ -43,5 +43,4 @@ public class Matrimony extends HttpServlet {
 		dispatcher.forward(req, resp);
 		
 	}
-
 }
